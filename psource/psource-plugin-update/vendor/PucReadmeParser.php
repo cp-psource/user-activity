@@ -228,7 +228,7 @@ class PucReadmeParser {
 	}
 
 	function user_sanitize( $text, $strict = false ) { // whitelisted chars
-		if ( function_exists('user_sanitize') ) // bbPress native
+		if ( function_exists('user_sanitize') ) // PSForum native
 			return user_sanitize( $text, $strict );
 
 		if ( $strict ) {
@@ -287,7 +287,7 @@ class PucReadmeParser {
 		return $text;
 	}
 
-	function code_trick( $text, $markdown ) { // Don't use bbPress native function - it's incompatible with Markdown
+	function code_trick( $text, $markdown ) { // Don't use PSForum native function - it's incompatible with Markdown
 		// If doing markdown, first take any user formatted code blocks and turn them into backticks so that
 		// markdown will preserve things like underscores in code blocks
 		if ( $markdown )
@@ -300,7 +300,7 @@ class PucReadmeParser {
 			// This gets the "block level" code blocks and converts them to PRE CODE
 			$text = preg_replace_callback("!(^|\n)`(.*?)`!s", array( __CLASS__, 'encodeit'), $text);
 		} else {
-			// Markdown can do inline code, we convert bbPress style block level code to Markdown style
+			// Markdown can do inline code, we convert PSForum style block level code to Markdown style
 			$text = preg_replace_callback("!(^|\n)([ \t]*?)`(.*?)`!s", array( __CLASS__, 'indent'), $text);
 		}
 		return $text;
@@ -313,7 +313,7 @@ class PucReadmeParser {
 	}
 
 	function encodeit( $matches ) {
-		if ( function_exists('encodeit') ) // bbPress native
+		if ( function_exists('encodeit') ) // PSForum native
 			return encodeit( $matches );
 
 		$text = trim($matches[2]);
@@ -329,7 +329,7 @@ class PucReadmeParser {
 	}
 
 	function decodeit( $matches ) {
-		if ( function_exists('decodeit') ) // bbPress native
+		if ( function_exists('decodeit') ) // PSForum native
 			return decodeit( $matches );
 
 		$text = $matches[2];

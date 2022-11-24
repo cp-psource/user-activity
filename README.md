@@ -1,8 +1,5 @@
 # User Activity
 
-**INACTIVE NOTICE: This plugin is unsupported by WPMUDEV, we've published it here for those technical types who might want to fork and maintain it for their needs.**
-
-
 Collect user activity data and make it available via a tab under the Site Admin.
 
 * Monitor user activity 

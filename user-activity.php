@@ -4,7 +4,7 @@ Plugin Name: Benutzeraktivität
 Plugin URI: https://n3rds.work
 Description: Sammelt Benutzeraktivitätsdaten und stellt sie über eine Registerkarte unter dem Site-Administrator zur Verfügung
 Author: WWMS N@W
-Version: 1.1
+Version: 1.2
 Network: true
 Text Domain: user_activity
 Author URI: https://n3rds.work
@@ -26,7 +26,7 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
-require 'externals/psource-plugin-update/plugin-update-checker.php';
+require 'psource/psource-plugin-update/plugin-update-checker.php';
 $MyUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'https://n3rds.work//wp-update-server/?action=get_metadata&slug=user-activity', 
 	__FILE__, 
@@ -40,7 +40,7 @@ class User_Activity {
 	/**
 	 * Current version of the plugin
 	 */
-	private $current_version = '1.1';
+	private $current_version = '1.2';
 
 	private $page_id;
 
@@ -395,7 +395,7 @@ class User_Activity {
 								<table class="form-table">
 									<thead>
 									<th><h4><?php _e( 'Benutzer', 'user_activity' ); ?></h4></th>
-									<th><h4 class="ua-visits"><?php _e( 'Visits', 'user_activity' ); ?></h4></th>
+									<th><h4 class="ua-visits"><?php _e( 'Besuche', 'user_activity' ); ?></h4></th>
 									</thead>
 									<tbody>
 									<?php foreach ( $last_month_results as $row ): ?>
